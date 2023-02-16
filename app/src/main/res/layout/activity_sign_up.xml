@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_wave__4_"
+
+    tools:context=".SignUpActivity">
+
+
+    <TextView
+        android:id="@+id/sendbroadtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Send Broadcasts"
+        android:textColor="@color/col2"
+        android:textSize="26sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/ccp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_bk"
+        app:ccp_contentColor="@color/white"
+
+        app:layout_constraintBottom_toBottomOf="@+id/signupPhone"
+        app:layout_constraintEnd_toStartOf="@+id/signupPhone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/signupPhone" />
+
+
+    <EditText
+        android:id="@+id/signupPhone"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/edittext_bk"
+        android:ems="10"
+        android:hint="Enter phone"
+        android:inputType="phone"
+        android:paddingStart="10dp"
+
+        android:textColor="@color/white"
+        android:textColorHint="#EAE9E9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendbroadtxt"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/signupOtp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/edittext_bk"
+        android:ems="10"
+        android:hint="Enter otp"
+        android:inputType="textPersonName"
+        android:paddingStart="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="#EAE9E9"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/signupPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/signupPhone"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signupphonebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/col2"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_bk"
+        android:text="Verify phone"
+        app:layout_constraintEnd_toEndOf="@+id/signupPhone"
+        app:layout_constraintStart_toStartOf="@+id/ccp"
+        app:layout_constraintTop_toBottomOf="@+id/signupPhone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mainbroadcastbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_bk"
+        android:text="Verify otp"
+        android:visibility="invisible"
+        android:textColor="@color/col2"
+        app:layout_constraintBottom_toBottomOf="@+id/signupphonebtn"
+        app:layout_constraintEnd_toEndOf="@+id/signupphonebtn"
+        app:layout_constraintStart_toStartOf="@+id/signupphonebtn"
+        app:layout_constraintTop_toTopOf="@+id/signupphonebtn" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:lottie_rawRes="@raw/loader"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/sendbroadtxt"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+
+    <TextView
+        android:id="@+id/signupTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
+        android:fontFamily="@font/amaranth_bold"
+        android:text="Edit phone number?"
+        android:textColor="@color/col2"
+        android:textSize="16sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/signupphonebtn"
+        app:layout_constraintTop_toBottomOf="@+id/signupphonebtn" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:visibility="visible"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/radar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/white"
+        android:onClick="expand2"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="50dp"
+        app:contentPadding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/guesttitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:fontFamily="@font/roboto_mono_bold"
+                android:text="Guest Login?"
+                android:textColor="@color/col2"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/guestdetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_margin="10dp"
+                android:text="@string/gustlogin"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signupguestbtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Proceed to guest login"
+                android:autoSizeMaxTextSize="16dp"
+                android:textColor="#1F3B4D"
+                android:textSize="14sp"
+                android:background="@drawable/btn_bk"
+                android:visibility="gone"/>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

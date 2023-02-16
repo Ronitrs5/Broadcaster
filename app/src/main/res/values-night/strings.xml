@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="information">What do we do:\n\n1.Any user can send a message which will notify all the users within 3KM proximity.\n\n2.Receivers will get a notification, and once you click on the notification, you will reach the page containing the message of sender.\n\n3.This means you will be notified when an event/incident has happened within 3KM radius.</string>
+    <string name="agreement">1.I will not send any funny/ meme messages as I know this app is made for informing purposes.\n2.I will not send false/fake messages which might impact other users.\n3.I will use formal language rather than any harsh or contradictory words.\n\nI hereby agree to follow all the points in the agreement.</string>
+    <string name="gustlogin">You wont be able to send any broadcasts, guest login is only for receiving messages. We recommend you to login with phone.\n</string>
+</resources>

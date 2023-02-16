@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "760764433724",
+    "project_id": "broadcast-960c9",
+    "storage_bucket": "broadcast-960c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760764433724:android:2edef271af6e29d3260a39",
+        "android_client_info": {
+          "package_name": "com.example.broadcast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760764433724-q60a3reg0frlm4a1io1hu7j1mm1thd7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgjNdSpUvAn9qA_WcLHwLWS9_woy4qgUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760764433724-q60a3reg0frlm4a1io1hu7j1mm1thd7p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EAE9E9"
+    tools:context=".MessageDetailsActivity">
+
+    <TextView
+        android:id="@+id/detailsTitletxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/amarante"
+        android:gravity="center"
+        android:maxLength="50"
+        android:maxLines="1"
+        android:text="Title"
+        android:textColor="@color/col2"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detailsmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="start"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:maxLength="100"
+        android:text="Message"
+        android:textColor="@color/col2"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailsTitletxt" />
+
+    <ImageView
+        android:id="@+id/imglike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/detailsTitletxt"
+        app:layout_constraintStart_toEndOf="@+id/detailsTitletxt"
+        app:layout_constraintTop_toTopOf="@+id/detailsTitletxt"
+        app:srcCompat="@drawable/icon_like" />
+
+    <ImageView
+        android:id="@+id/imgdislike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/detailsTitletxt"
+        app:layout_constraintEnd_toStartOf="@+id/detailsTitletxt"
+        app:layout_constraintTop_toTopOf="@+id/detailsTitletxt"
+        app:srcCompat="@drawable/icon_dislike" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textColor="#FF0303"
+        android:text="Report this message?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
