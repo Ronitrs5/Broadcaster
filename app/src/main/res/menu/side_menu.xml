@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Broadcaster Services">
+
+            <menu>
+
+                <item android:id="@+id/sidemenu_broadcast_specific"
+                    android:title="Broadcast to specific user"
+                    android:icon="@drawable/icon_specific">
+
+                </item>
+                <item android:id="@+id/sidemenu_all_history"
+                    android:title="All broadcast history"
+                    android:icon="@drawable/icon_history">
+
+                </item>
+                <item android:id="@+id/sidemenu_my_history"
+                    android:title="My broadcast history"
+                    android:icon="@drawable/icon_myhistory">
+
+                </item>
+
+            </menu>
+
+        </item>
+
+    </group>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Others">
+
+            <menu>
+
+                <item android:id="@+id/sidemenu_profile"
+                    android:title="Profile"
+                    android:icon="@drawable/icon_profile">
+
+                </item>
+                <item android:id="@+id/sidemenu_setting"
+                    android:title="Settings"
+                    android:icon="@drawable/icon_settings">
+
+                </item>
+                <item android:id="@+id/sidemenu_share"
+                    android:title="Share app"
+                    android:icon="@drawable/icon_share">
+                </item>
+                <item android:id="@+id/sidemenu_logout"
+                    android:title="Log Out"
+                    android:icon="@drawable/icon_logout">
+
+                </item>
+
+            </menu>
+
+        </item>
+
+    </group>
+
+</menu>

@@ -4,4 +4,7 @@
     <string name="agreement">1.I will not send any funny/ meme messages as I know this app is made for informing purposes.\n2.I will not send false/fake messages which might impact other users.\n3.I will use formal language rather than any harsh or contradictory words.\n\nI hereby agree to follow all the points in the agreement.</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="gustlogin">You wont be able to send any broadcasts, guest login is only for receiving messages. We recommend you to login with phone.\n</string>
+    
+    <string name="navigation_open"> Open Navigation drawer</string>
+    <string name="navigation_close"> Close Navigation drawer</string>
 </resources>

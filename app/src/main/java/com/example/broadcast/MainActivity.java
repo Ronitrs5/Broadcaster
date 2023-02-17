@@ -1,10 +1,14 @@
 package com.example.broadcast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -16,10 +20,12 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,18 +33,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Locale;
+
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     protected LocationManager locationManager;
     protected LocationListener locationListener;
@@ -52,7 +65,11 @@ public class MainActivity extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
     int permissionID=44;
 
-    Button button;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+
+    Button button, mapButton;
     ImageView logout;
     EditText title, message;
     AlertDialog.Builder builder;
@@ -64,6 +81,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        toolbar= findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawerLayout= findViewById(R.id.main);
+        navigationView= findViewById(R.id.navigation_view);
+
+        ActionBarDrawerToggle toggle= new ActionBarDrawerToggle(this,drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         FirebaseMessaging.getInstance().subscribeToTopic("all");
 
@@ -73,7 +100,9 @@ public class MainActivity extends AppCompatActivity {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
 
-
+        LottieAnimationView b2= findViewById(R.id.imageView2);
+        LottieAnimationView b3= findViewById(R.id.imageView3);
+        mapButton= findViewById(R.id.gotomapbtn);
         firebaseAuth= FirebaseAuth.getInstance();
         logout= findViewById(R.id.mainlogout);
         button= findViewById(R.id.mainbroadcastbtn);
@@ -81,6 +110,23 @@ public class MainActivity extends AppCompatActivity {
         message= findViewById(R.id.mainmessage);
 
         builder= new AlertDialog.Builder(this);
+
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                SupportMapFragment mapFragment = SupportMapFragment.newInstance();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .add(R.id.main, mapFragment)
+                        .commit();
+
+                button.setVisibility(View.GONE);
+                mapButton.setVisibility(View.GONE);
+
+            }
+        });
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -147,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
                     if (location == null) {
                         requestNewLocationData();
                     } else {
-                        txtLat.setText(location.getLatitude() + "");
-                        txtLon.setText(location.getLongitude() + "");
+                        txtLat.setText("Latitude: "+location.getLatitude() + "");
+                        txtLon.setText("Longitude: "+location.getLongitude() + "");
                     }
                 });
             }
@@ -230,5 +276,10 @@ public class MainActivity extends AppCompatActivity {
         if (checkPermissions()) {
             getLastLocation();
         }
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+
     }
 }

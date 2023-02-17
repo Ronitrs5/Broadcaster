@@ -26,7 +26,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMessagingService extends com.google.firebase.messaging.FirebaseMessagingService {
 
-     NotificationManager mNotificationManager;
+    NotificationManager mNotificationManager;
 
 
     @Override
@@ -63,17 +63,8 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 
 
 
-        Intent resultIntent = new Intent(this, MessageDetailsActivity.class);
-        resultIntent.putExtra("title", remoteMessage.getNotification().getTitle());
-        resultIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent resultIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_IMMUTABLE);
-
-
-        resultIntent.putExtra("message", remoteMessage.getNotification().getBody() );
-
-
-
-
 
 
         builder.setContentTitle(remoteMessage.getNotification().getTitle());
@@ -109,5 +100,4 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
     }
 
 }
-
 

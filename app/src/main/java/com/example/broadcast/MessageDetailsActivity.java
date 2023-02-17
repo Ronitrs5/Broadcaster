@@ -3,41 +3,38 @@ package com.example.broadcast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-public class MessageDetailsActivity extends AppCompatActivity {
-
-    TextView title, message;
-
+public class MessageDetailsActivity extends Activity {
+    private TextView Title,Message ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message_details);
+        Title=(TextView)findViewById(R.id.detailsTitletxt);
+        Message=(TextView)findViewById(R.id.detailsmessage);
 
-        title= findViewById(R.id.detailsTitletxt);
-        message= findViewById(R.id.detailsmessage);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        if(getIntent().getExtras()!=null)
+        {
+            for(String key : getIntent().getExtras().keySet())
+            {
+                if(key.equals("title")) {
+                    Title.setText(getIntent().getExtras().getString(key));
+                    String title = getIntent().getStringExtra("title");
+                }
+                else if(key.equals("message")) {
+                    Message.setText(getIntent().getExtras().getString(key));
+                    String body = getIntent().getStringExtra("body");
+                }
 
+            }
 
+        }
 
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        super.onNewIntent(intent);
-
-
-        Bundle bundle=intent.getExtras();
-
-        String t1= intent.getStringExtra("title");
-        String t2= intent.getStringExtra("message");
-
-        Log.d("nitin","hello : "+bundle.toString());
-        title.setText(t1);
-        message.setText(t2);
     }
 }

@@ -7,21 +7,30 @@
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/btn_bk.xml" value="0.2985" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/dialogue_bk.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/edittext_bk.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__1_.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__2_.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__3_.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__4_.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__5_.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/ic_wave__6_.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_dislike.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_history.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_like.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_logout.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_myhistory.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_share.xml" value="0.276" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_specific.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/drawable/icon_wave.xml" value="0.276" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_agreement.xml" value="0.34479166666666666" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_gmaps.xml" value="0.34479166666666666" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_main.xml" value="0.34479166666666666" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_main2.xml" value="0.34479166666666666" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_maps.xml" value="0.34479166666666666" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_message_details.xml" value="0.34479166666666666" />
         <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/layout/sidemenu_header.xml" value="0.34375" />
+        <entry key="..\:/My Android Apps/Broadcast/app/src/main/res/menu/side_menu.xml" value="0.34479166666666666" />
       </map>
     </option>
   </component>

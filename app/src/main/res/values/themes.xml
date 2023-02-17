@@ -12,7 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">#4198E4</item>
         <!-- Customize your theme here. -->
-
+        <item name="android:windowActivityTransitions"> true</item>
+        <item name="android:windowEnterTransition"> @transition/transition_</item>
+        <item name="android:windowExitTransition"> @transition/transition_</item>
 
     </style>
 </resources>

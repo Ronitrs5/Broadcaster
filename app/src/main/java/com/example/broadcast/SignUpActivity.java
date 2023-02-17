@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.animation.LayoutTransition;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.hbb20.CountryCodePicker;
@@ -51,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
     String otpId;
     ImageView imageView;
     FirebaseAuth mAuth;
-    FirebaseFirestore firebaseFirestore;
+    DatabaseReference databaseReference;
     public static final String SHARED_PREFS= "sharedPrefs";
 
 
@@ -63,7 +66,8 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         LottieAnimationView pb= findViewById(R.id.progressBar);
-        firebaseFirestore= FirebaseFirestore.getInstance();
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("users");
+
         LottieAnimationView image= findViewById(R.id.imageView);
 
         mAuth= FirebaseAuth.getInstance();
@@ -84,8 +88,9 @@ public class SignUpActivity extends AppCompatActivity {
         guestbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SignUpActivity.this, MainActivity2.class));
-                finish();
+                Intent intent= new Intent(SignUpActivity.this, MainActivity2.class);
+                Bundle bundle= ActivityOptions.makeSceneTransitionAnimation(SignUpActivity.this).toBundle();
+                startActivity(intent, bundle);
             }
         });
 
@@ -119,6 +124,7 @@ public class SignUpActivity extends AppCompatActivity {
                 else{
                     PhoneAuthCredential credential= PhoneAuthProvider.getCredential(otpId, otp.getText().toString());
                     signInWithPhoneAuthCredential(credential);
+                    putDataInDatabase();
                     image.setVisibility(View.INVISIBLE);
                     textView.setVisibility(View.INVISIBLE);
                     pb.setVisibility(View.VISIBLE);
@@ -141,6 +147,12 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void putDataInDatabase() {
+        String phoneNumber= phone.getText().toString();
+        UserData userData= new UserData(phoneNumber);
+        databaseReference.push().setValue(userData);
     }
 
 

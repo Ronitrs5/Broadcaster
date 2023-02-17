@@ -33,6 +33,7 @@ public class AgreementActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
 
+        checkBox = findViewById(R.id.checkbox);
         details= findViewById(R.id.details);
         details1=  findViewById(R.id.details1);
         layout= findViewById(R.id.layout);
@@ -41,19 +42,19 @@ public class AgreementActivity extends AppCompatActivity {
         layout.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
         layout1.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        checkBox= findViewById(R.id.checkbox);
+
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
+                if (checkBox.isChecked()){
                     button.setVisibility(View.VISIBLE);
-                }else{
+                }
+                else{
                     button.setVisibility(View.GONE);
                 }
             }
         });
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_wave__5_"
+
     tools:context=".AgreementActivity">
 
 
@@ -53,11 +54,12 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/checkbox"
+                app:lottie_rawRes="@raw/switchandroid"
                 android:layout_gravity="center"
-                android:visibility="gone" />
+                android:visibility="gone"/>
         </LinearLayout>
 
 
