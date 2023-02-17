@@ -4,9 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_wave__5_"
 
     tools:context=".AgreementActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/girlwaitinggiff"
+        app:layout_constraintStart_toStartOf="@id/conlay"
+        app:layout_constraintEnd_toEndOf="@id/conlay"
+        app:layout_constraintTop_toBottomOf="@id/conlay"/>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/conlay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:background="@drawable/layout_bk"
+    app:layout_constraintTop_toTopOf="parent"
+    android:paddingBottom="20dp">
+
 
 
     <androidx.cardview.widget.CardView
@@ -129,5 +149,7 @@
 
 
     </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

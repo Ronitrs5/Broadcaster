@@ -147,7 +147,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/radar" />
+        app:lottie_rawRes="@raw/singlecirclpb" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"

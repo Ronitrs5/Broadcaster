@@ -9,7 +9,8 @@
 
                 <item android:id="@+id/sidemenu_broadcast_specific"
                     android:title="Broadcast to specific user"
-                    android:icon="@drawable/icon_specific">
+                    android:icon="@drawable/icon_specific"
+                    android:iconTint="@color/col2">
 
                 </item>
                 <item android:id="@+id/sidemenu_all_history"

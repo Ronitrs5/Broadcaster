@@ -15,6 +15,9 @@
         <item name="android:windowActivityTransitions"> true</item>
         <item name="android:windowEnterTransition"> @transition/transition_</item>
         <item name="android:windowExitTransition"> @transition/transition_</item>
-
+    </style>
+    
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:windowAnimationStyle"> @style/Animation.Design.BottomSheetDialog</item>
     </style>
 </resources>

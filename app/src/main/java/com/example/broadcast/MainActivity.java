@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -17,6 +18,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -26,6 +29,7 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -153,34 +157,47 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     message.setError("Cannot be empty");
                 } else
                 {
-                builder
-                        .setTitle("Confirm")
-                        .setMessage("Do you want to broadcast this message?")
-                        .setCancelable(true)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                                FcmNotificationsSender notificationsSender= new FcmNotificationsSender("/topics/all"
-                                        ,title.getText().toString(),
-                                        message.getText().toString(), getApplicationContext(), MainActivity.this);
-
-                                notificationsSender.SendNotifications();
-
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .show();
+                    showDialogBox();
                 }
             }
         });
 
 
+    }
+
+
+    private void showDialogBox() {
+
+        AlertDialog.Builder builder= new AlertDialog.Builder(MainActivity.this, R.style.AlertDialogTheme);
+        View view= LayoutInflater.from(MainActivity.this).inflate(R.layout.dialoguebox_bk, (ConstraintLayout)findViewById(R.id.dialogbk));
+        builder.setView(view);
+        final AlertDialog alertDialog= builder.create();
+        view.findViewById(R.id.dialogyesbtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FcmNotificationsSender notificationsSender= new FcmNotificationsSender("/topics/all"
+                        ,title.getText().toString(),
+                        message.getText().toString(), getApplicationContext(), MainActivity.this);
+
+                notificationsSender.SendNotifications();
+                alertDialog.dismiss();
+                Toast.makeText(MainActivity.this, "Broadcast sent successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+        view.findViewById(R.id.dialognobtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+        if (alertDialog.getWindow()!=null){
+            alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        }
+        alertDialog.show();
     }
 
     @SuppressLint("MissingPermission")
